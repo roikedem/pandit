@@ -1,11 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/bodleian/consolidated-tei-schema/master/msdesc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="https://raw.githubusercontent.com/bodleian/consolidated-tei-schema/master/msdesc.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <!-- This is a work on 
 https://github.com/bodleian/south-asian-mss/blob/master/collections/MS-Ind-Inst/ms-ind-inst-sansk-233-r-meghaduta.xml
 and finding equivalence to
 https://www.panditproject.org/node/110421
 -->
-<?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="https://raw.githubusercontent.com/bodleian/consolidated-tei-schema/master/msdesc.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="https://raw.githubusercontent.com/bodleian/consolidated-tei-schema/master/msdesc.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="manuscript_00034">
 
     <teiHeader xmlns="http://www.tei-c.org/ns/1.0">
@@ -15,7 +15,7 @@ https://www.panditproject.org/node/110421
                 <funder>Andrew W. Mellon Foundation</funder>
                 <principal>Gillian Evison</principal>
             </titleStmt>
-            <publicationStmt> <!-- pandit:missing:publisher (or is the publisher here not relevant to the ms itself?) -->
+            <publicationStmt> <!-- pandit:missing:publisher (or is the publisher here not relevant to the ms itself?) @camillo - fixed text per Bodleian -->
                 <publisher>Bodleian Libraries</publisher>
                 <date calendar="Gregorian">[Date when first made available]</date>
                 <pubPlace>
@@ -47,7 +47,13 @@ https://www.panditproject.org/node/110421
                         <collection type="main">Oriental Manuscripts</collection> <!-- pandit:ms:field-name:Collection
                                                                                         Comments:
                                                                                         Needs to understand the diffrerence between collection with 
-                                                                                        type="main" and type="sanskrit" and how to generalize it to other collections -->
+                                                                                        type="main" and type="sanskrit" and how to generalize it to other collections 
+                                                                                        @camillo - we might be able to take "collection" out of msIdentifier
+                                                                                        We need to decide if collections are heirarchical (in pandit)
+                                                                                        decision is no heirarchy - only one (in this case Sanskrit, Evans-Wentz
+                            Collection)
+                                                                                    -->
+                                          <collection xml:id="pandit:192828"></collection>
                         <collection type="sanskrit" subtype="evans-wentz">Sanskrit, Evans-Wentz
                             Collection
                         </collection>
@@ -507,11 +513,13 @@ https://www.panditproject.org/node/110421
                         </item>
                     </list>
                 </keywords>
-                <keywords scheme="local">
+                <keywords scheme="local"> <!-- pandit:labels of type "genres"-->
                     <list>
                         <item corresp="#kāvya">Kāvya</item>
                         <item corresp="#laghukāvya">Laghukāvya</item>
                         <item corresp="#sandeśakāvya">Sandeśakāvya</item>
+                        <item corresp="#sandeśakāvya" pandit:id="parojectpandit.org/x/y/z">Sandeśakāvya</item> <!-- pandit: this will be the form of the labels exports. Text will be taken from the title of the label (e.g. the Genre name)-->
+
                     </list>
                 </keywords>
             </textClass>
@@ -534,6 +542,7 @@ https://www.panditproject.org/node/110421
         <graphic url="[link to image 2]"/>
     </facsimile>-->
     <text> <!-- pandit: roi: Yigal, I need help understanding our relation to the text itself -->
+        <!-- @camillo - no need to export <facsimile> nor <text> -->
         <body>
             <div>
                 <!--<pb n="cover" facs="#i1"/>
