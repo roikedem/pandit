@@ -79,9 +79,9 @@ https://www.panditproject.org/node/110421
                             </name>'s <title xml:lang="sa">Meghadūta</title> with numerous
                             annotations in the margins.</summary>
 
-                        <msItem n="1" defective="true">
+                        <msItem n="1" defective="true"> <!-- this related to a work entity -->
 
-                            <author>
+                            <author>   <!-- this is the related work's author -->
                                 <name type="person" subtype="aut"
                                     key="person_00012">
                                     <persName xml:lang="sa" type="standard">Kālidāsa</persName>
@@ -114,7 +114,7 @@ https://www.panditproject.org/node/110421
                                 śubham astu lipikarttari || <sic>śakābdā</sic> 1622 || 
                             </colophon>
 
-                            <textLang mainLang="sa">Sanskrit.</textLang>
+                            <textLang mainLang="sa" otherLangs="fr it">Sanskrit</textLang>  <!-- here I put an example of how to add French and Italian as secondary language -->
                         </msItem>
                     </msContents>
 
